@@ -23,6 +23,7 @@ namespace Store_GB.Controllers
                         Name = x.Name,
                         Description = x.Description
                     });
+                    context.SaveChanges();
                     return Ok(category);
                 }
             }
@@ -48,6 +49,7 @@ namespace Store_GB.Controllers
                             Name = name,
                             Description = description                       
                         });
+                        context.SaveChanges();
                         return Ok();
                     }
                     return StatusCode(409);
@@ -74,6 +76,7 @@ namespace Store_GB.Controllers
                     if (category != null) {
                         context.Remove(category);
                     }
+                    context.SaveChanges();
                     return StatusCode(409);
                 }
             }

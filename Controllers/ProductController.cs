@@ -23,6 +23,7 @@ namespace Store_GB.Controllers
                         Name = x.Name,
                         Description = x.Description
                     });
+                    context.SaveChanges();
                     return Ok(products);
                 }
             }
@@ -50,6 +51,7 @@ namespace Store_GB.Controllers
                             Cost = cost,
                             CategoryId = categoryID
                         });
+                        context.SaveChanges();
                         return Ok();
                     }
                     return StatusCode(409);
@@ -76,6 +78,7 @@ namespace Store_GB.Controllers
                     if (product != null) {
                         context.Remove(product);
                     }
+                    context.SaveChanges();
                     return StatusCode(409);
                 }
             }
@@ -98,6 +101,7 @@ namespace Store_GB.Controllers
                     {
                       product.Cost = newCost;
                     }
+                    context.SaveChanges();
                     return StatusCode(409);
                 }
             }
